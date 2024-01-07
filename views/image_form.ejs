@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%> </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/form.css' />
+  </head>
+  <body>
+    <div class="navbar">
+      <span><a href="/">Foot</a></span>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/Category/Create">Add Category</a>
+        </li>
+        <li>
+          <a href="/Item/Create">Add Item</a>
+        </li>
+      </ul>
+    </div>
+    <p class="title"><%=title%>: <%=item.name%></p>
+    <div class="main">
+      <form method="POST" action="">
+        <label for="image">Image URL: </label>
+        <input type="text" name="image" id="image" class="image" placeholder="Insert image URL, Drive, Dropbox" 
+        value="<%= (typeof item === 'undefined' ? '' : item.image) %>"/>
+        <button type="submit">Submit</button>
+        <a href="<%=item.url%>">Go Back</a>
+      </form>
+    </div>
+  </body>
+</html>

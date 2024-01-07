@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/form.css' />
+  </head>
+  <body>
+    <div class="navbar">
+      <span><a href="/">Foot</a></span>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/Category/Create">Add Category</a>
+        </li>
+        <li>
+          <a href="/Item/Create">Add Item</a>
+        </li>
+      </ul>
+    </div>
+    <p class="title"><%=title%></p>
+    <div class="main">
+      <form method="POST" action="" >
+        <label for="name">Name: </label>
+        <input type="text" id="name" placeholder="Insert item name"
+        name="name" required="<%=true%>" maxlength="40" value="<%= (typeof item === 'undefined' ? '' : item.name) %>" />
+        <br><br>
+        <label for="description">Description: </label>
+        <input type="text" id="description" placeholder="Insert item description"
+        name="description" required="<%=true%>" maxlength="60" value="<%= (typeof item === 'undefined' ? '' : item.description) %>" />
+        <br><br>
+        <label for="category">Category: </label>
+        <select name="category" id="category" placeholder="Select category" required="<%=true%>">
+          <% categories.forEach((category) => {%>
+            <% if (item) { %>
+              <option value="<%= category._id %>" selected="<%= (category._id.toString() === item.category._id.toString() ? 'selected' : false) %>">
+                <%= category.name %>
+              </option>
+            <% } else { %>
+              <option value="<%= category._id %>"><%= category.name %></option>
+            <% } %>
+          <% }); %>
+        </select>
+        <br><br>
+        <label for="price">Price: $ </label>
+        <input type="number" id="price" placeholder="Insert item price"
+        name="price" required="<%=true%>" value="<%= (typeof item === 'undefined' ? '' : item.price) %>" />
+        <br><br>
+        <label for="in_stock">Units in stock:  </label>
+        <input type="number" id="in_stock" placeholder="Insert item stock units"
+        name="in_stock" required="<%=true%>" value="<%= (typeof item === 'undefined' ? '' : item.in_stock) %>" />
+        <br><br>
+        <label for="image">Images:  </label>
+        <input type="url" id="image" placeholder="Insert item image drive link"
+        name="image" value="<%= (typeof item === 'undefined' ? '' : item.image) %>" />
+        <br><br>
+        <button type="submit">Submit</button>
+        <% if (item) { %>
+          <a href="<%=item.url%>">Go Back</a>
+        <% } else { %>
+          <a href="/">Go Back</a>
+        <% } %>
+      </form>
+    </div>
+  </body>
+</html>

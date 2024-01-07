@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/item.css' />
+  </head>
+  <body>
+    <div class="navbar">
+      <span><a href="/">Foot</a></span>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/Category/Create">Add Category</a>
+        </li>
+        <li>
+          <a href="/Item/Create">Add Item</a>
+        </li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="item">
+        <div class="images">
+          <% if (item.image.length == 0) { %>
+            <div class="no-image">
+              <p>No image</p>
+              <a href="<%=item.url%>/ImageUpload">Upload Image</a>
+            </div>
+          <% } else { %>
+            <img src="<%= item.image %>" alt="<%= item.name %>" loading="lazy">
+          <% } %>
+        </div>
+        <div class="item-info">
+          <div class="details">
+            <p><%= item.name %></p>
+            <p><%= item.category.name %></p>
+            <p><%= item.description %></p>
+            <p>$<%= item.price.toFixed(2) %></p>
+            <p>Available units in stock: <%= item.in_stock %></p>
+          </div>
+          <div class="options">
+            <a class="option" href="<%=item.url%>/Edit">Edit Item</a>
+            <a class="option" href="<%=item.url%>/Delete">Remove Item</a>
+            <a class="option" href="<%=item.category.url%>">Go Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+    <a class="btn" href="<%=item.url%>/Edit">Edit Item</a>
+    <a class="btn" href="<%=item.url%>/Delete">Remove Item</a>
+    <p><%= item.name %></p>
+    <p><%= item.category.name %></p>
+    <p><%= item.description %></p>
+    <p>$<%= item.price.toFixed(2) %></p>
+    <p>Available units in stock: <%= item.in_stock %></p>
+    <img src=<%= item.image %> alt=<%= item.name %>>
+    -->
+  </body>
+</html>

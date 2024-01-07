@@ -1,0 +1,120 @@
+.main {
+    padding: 36px;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+input, select {
+    width: 45%;
+    padding: 8px;
+    font-size: 1rem;
+    background: whitesmoke;
+    border-radius: 12px;
+}
+
+button, form a {
+    width: 10%;
+    padding: 8px;
+    border: 1px solid white;
+    text-align: center;
+    border-radius: 16px;
+    background: whitesmoke;
+    color: black;
+    transition: 150ms all ease-in-out;
+    margin-bottom: 32px;
+    cursor: pointer;
+}
+
+form a {
+    width: 8.5%;
+}
+
+.image {
+    margin-bottom: 32px;
+    width: 30%;
+    color: black;
+}
+
+@media screen and (max-width: 1000px) {
+    .main {
+        padding: 28px;
+    }
+    
+    form {
+        padding: 20px;
+        width: 85%;
+    }
+    
+    input, select {
+        width: 60%;
+    }
+    
+    button, form a {
+        width: 120px;
+    }
+    
+    form a {
+        width: 104px;
+    }
+
+    .image {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .main {
+        padding: 20px;
+    }
+    
+    form {
+        padding: 16px;
+        width: 90%;
+    }
+    
+    label {
+        font-size: 0.9rem;
+    }
+    
+    input, select {
+        width: 70%;
+        font-size: 0.9rem;
+    }
+
+    .image {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main {
+        padding: 20px;
+    }
+    
+    form {
+        padding: 12px;
+        width: 100%;
+    }
+    
+    input, select {
+        width: 80%;
+        font-size: 0.9rem;
+    }
+
+    .image {
+        width: 80%;
+    }
+}

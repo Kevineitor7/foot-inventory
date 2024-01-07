@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=categoryName%> </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/list.css' />
+  </head>
+  <body>
+    <div class="navbar">
+      <span><a href="/">Foot</a></span>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/Category/Create">Add Category</a>
+        </li>
+        <li>
+          <a href="/Item/Create">Add Item</a>
+        </li>
+      </ul>
+    </div>
+    <p class="title"><%=categoryDescription%></p>
+    <% if (!defaultCategories.includes(categoryName)) { %>
+    <div class="category-options">
+      <a class="option" href="<%=category.url%>/Edit">Edit Category</a>
+      <a class="option" href="<%=category.url%>/Delete">Remove Category</a>
+    </div>
+    <% } %>
+    <div class="items">
+      <ul>
+          <% if (categoryItems.length > 0) { %>
+            <% categoryItems.forEach((item) => {%>
+              <li>
+                <a class="item"  href=<%=item.url%>>
+                  <img src="<%=item.image[0]%>" loading="lazy" alt="."/>
+                  <%=item.name%>
+                </a>
+              </li>
+            <% }); %>
+          <% } else { %>
+              <li style="font-size: 1rem;">No items in this category</li>
+          <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

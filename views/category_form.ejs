@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%> </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/form.css' />
+  </head>
+  <body>
+    <div class="navbar">
+      <span><a href="/">Foot</a></span>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/Category/Create">Add Category</a>
+        </li>
+        <li>
+          <a href="/Item/Create">Add Item</a>
+        </li>
+      </ul>
+    </div>
+    <p class="title"><%=title%></p>
+    <div class="main">
+      <form method="POST" action="" >
+        <label for="name">Category Name: </label>
+        <input type="text" id="name" placeholder="Insert category name"
+        name="name" required="<%=true%>" value="<%= (typeof category === 'undefined' ? '' : category.name) %>" />
+        <br><br>
+        <label for="description">Description: </label>
+        <input type="text" id="description" placeholder="Insert category description"
+        name="description" required="<%=true%>" value="<%= (typeof category === 'undefined' ? '' : category.description) %>" />
+        <br><br>
+        <button type="submit">Submit</button>
+        <% if (category) { %>
+          <a href="<%=category.url%>">Go Back</a>
+        <% } else { %>
+          <a href="/">Go Back</a>
+        <% } %>
+      </form>
+    </div>
+  </body>
+</html>

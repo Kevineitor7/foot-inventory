@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/delete.css' />
+  </head>
+  <body>
+    <div class="navbar">
+      <span><a href="/">Foot</a></span>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/Category/Create">Add Category</a>
+        </li>
+        <li>
+          <a href="/Item/Create">Add Item</a>
+        </li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="item">
+        <div class="images">
+          <img src=<%= item.image %> alt=<%= item.name %>>
+        </div>
+        <div class="item-info">
+          <div class="details">
+            <p><%= item.name %></p>
+            <p><%= item.category.name %></p>
+            <p><%= item.description %></p>
+            <p>$<%= item.price.toFixed(2) %></p>
+            <p>Available units in stock: <%= item.in_stock %></p>
+          </div>
+          <div class="delete">
+            <p><strong>Are you sure you want to delete this item?</strong></p>
+            <form method="POST" action="" >
+              <input type="hidden" name='itemid' required="<%=true%>" value="<%=item._id%>">
+              <button type="submit">Delete</button>
+              <a href="<%=item.url%>">Go Back</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+  <body>
+    <div class="navbar">
+      <span><a href="/">Foot</a></span>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/Category/Create">Add Category</a>
+        </li>
+        <li>
+          <a href="/Item/Create">Add Item</a>
+        </li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="main-categories">
+        <div class="main-category kits">
+          <div>
+            <a class="btn btn-main" href="/Kits">See all Kits</a>
+          </div>
+        </div>
+        <div class="main-category balls">
+          <div>
+            <a class="btn btn-main" href="/Balls">See all Balls</a>
+          </div>
+        </div>
+        <div class="main-category boots">
+          <div>
+            <a class="btn btn-main" href="/Shoes">See all Boots</a>
+          </div>
+        </div>
+        <div class="main-category all">
+          <div>
+            <a class="btn btn-main" href="/All">See all Items</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="all-categories">
+      <h2>All Categories</h2>
+      <ul class="categories">
+        <% categories.forEach((category) => {%>
+            <li>
+              <a class="category" href=<%=category.url%>><%=category.name%></a>
+            </li>
+        <% }); %>
+      </ul>
+    </div>
+  </body>
+</html>

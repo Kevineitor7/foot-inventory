@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%> </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/delete.css' />
+  </head>
+  <body>
+    <div class="navbar">
+        <span><a href="/">Foot</a></span>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/Category/Create">Add Category</a>
+          </li>
+          <li>
+            <a href="/Item/Create">Add Item</a>
+          </li>
+        </ul>
+      </div>
+    <p class="title"><%=title%></p>
+    <% if (categoryItems.length > 0) { %>
+        <p class="note">To delete category, remove all corresponding items</p>
+        <div class="items-delete">
+            <ul>
+                <% categoryItems.forEach((item) => { %>
+                    <li>
+                        <a class="item-delete" href=<%=item.url%>>
+                            <img src="<%=item.image[0]%>" loading="lazy"/>
+                            <%=item.name%>
+                        </a>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    <% } else { %>
+        <p class="note">Are you sure you want to delete <%=category.name%>?</p>
+        <form method="POST" action="" >
+            <input type="hidden" name='categoryid' required="<%=true%>" value="<%=category._id%>">
+            <button type="submit">Delete</button>
+        </form>
+    <% } %>
+  </body>
+</html>
