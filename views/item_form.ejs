@@ -36,7 +36,7 @@
         <select name="category" id="category" placeholder="Select category" required="<%=true%>">
           <% categories.forEach((category) => {%>
             <% if (item) { %>
-              <option value="<%= category._id %>" selected="<%= (category._id.toString() === item.category._id.toString() ? 'selected' : false) %>">
+              <option value="<%= category._id %>" <%= (category._id.toString() === item.category._id.toString() ? 'selected' : false) %>>
                 <%= category.name %>
               </option>
             <% } else { %>
@@ -54,7 +54,7 @@
         name="in_stock" required="<%=true%>" value="<%= (typeof item === 'undefined' ? '' : item.in_stock) %>" />
         <br><br>
         <label for="image">Images:  </label>
-        <input type="url" id="image" placeholder="Insert item image drive link"
+        <input type="url" id="image" placeholder="Insert image URL"
         name="image" value="<%= (typeof item === 'undefined' ? '' : item.image) %>" />
         <br><br>
         <button type="submit">Submit</button>
